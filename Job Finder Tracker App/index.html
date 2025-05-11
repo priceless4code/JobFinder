@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JobFinder Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>JobFinder</h1>
+    <button id="themeToggle">Toggle Theme</button>
+  </header>
+
+  <main id="jobSection">
+    
+      <h2>Available Jobs</h2>
+      <div class="filter-bar">
+  <input type="text" id="searchInput" placeholder="Search job title or company..." />
+
+  <label for="typeFilter">Filter by job type:</label>
+  <select id="typeFilter">
+    <option value="">All Types</option>
+    <option value="Full-time">Full-time</option>
+    <option value="Part-time">Part-time</option>
+    <option value="Remote">Remote</option>
+    <option value="Internship">Internship</option>
+  </select>
+</div>
+      <div class="job-listings">
+        <div class="job-card">
+      <h3>Frontend Developer</h3>
+        <p><strong>Company:</strong> TechVision</p>
+        <p><strong>Location:</strong> Remote</p>
+        <p><strong>Type:</strong> Full-time</p>
+      <button class="apply-btn">Apply Now</button>
+</div>
+
+      </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+
+
