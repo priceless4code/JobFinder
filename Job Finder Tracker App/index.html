@@ -9,39 +9,59 @@
 <body>
   <header>
     <h1>JobFinder</h1>
-    <button id="themeToggle">Toggle Theme</button>
+    <button id="themeToggle" aria-label="Toggle dark mode">Toggle Theme</button>
   </header>
 
-  <main id="jobSection">
-    
+  <div class="container">
+    <main id="jobSection">
       <h2>Available Jobs</h2>
+      
       <div class="filter-bar">
-  <input type="text" id="searchInput" placeholder="Search job title or company..." />
-
-  <label for="typeFilter">Filter by job type:</label>
-  <select id="typeFilter">
-    <option value="">All Types</option>
-    <option value="Full-time">Full-time</option>
-    <option value="Part-time">Part-time</option>
-    <option value="Remote">Remote</option>
-    <option value="Internship">Internship</option>
-  </select>
-</div>
-      <div class="job-listings">
-        <div class="job-card">
-      <h3>Frontend Developer</h3>
-        <p><strong>Company:</strong> TechVision</p>
-        <p><strong>Location:</strong> Remote</p>
-        <p><strong>Type:</strong> Full-time</p>
-      <button class="apply-btn">Apply Now</button>
-</div>
-
+        <div class="filter-row">
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search job title or company..." />
+            <button id="searchButton" aria-label="Search jobs">Search</button>
+          </div>
+        </div>
+        
+        <div class="filter-row">
+          <label for="typeFilter">Job Type:</label>
+          <select id="typeFilter">
+            <option value="">All Job Types</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Remote">Remote</option>
+            <option value="Internship">Internship</option>
+          </select>
+          
+          <label for="locationFilter">Location:</label>
+          <select id="locationFilter">
+            <option value="">All Locations</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="On-site">On-site</option>
+          </select>
+          
+          <button id="clearFilters">Clear Filters</button>
+        </div>
       </div>
-  </main>
+      
+      <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+      </div>
+      
+      <div class="job-listings">
+        <!-- Job cards will be dynamically generated here -->
+      </div>
+      
+      <div id="emptyState" class="empty-state" style="display: none;">
+        <h3>No Jobs Found</h3>
+        <p>Try adjusting your search criteria or filters to see more results.</p>
+        <button id="resetSearch">Reset Search</button>
+      </div>
+    </main>
+  </div>
 
   <script src="js/script.js"></script>
 </body>
 </html>
-
-
-
