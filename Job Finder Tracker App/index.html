@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Find and track your dream job with JobFinder">
   <title>JobFinder Tracker</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -19,14 +20,14 @@
       <div class="filter-bar">
         <div class="filter-row">
           <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search job title or company..." />
-            <button id="searchButton" aria-label="Search jobs">Search</button>
+            <input type="text" id="searchInput" placeholder="Search job title or company..." aria-label="Search jobs" />
+            <button id="searchButton" aria-label="Search">Search</button>
           </div>
         </div>
         
         <div class="filter-row">
           <label for="typeFilter">Job Type:</label>
-          <select id="typeFilter">
+          <select id="typeFilter" aria-label="Filter by job type">
             <option value="">All Job Types</option>
             <option value="Full-time">Full-time</option>
             <option value="Part-time">Part-time</option>
@@ -35,26 +36,32 @@
           </select>
           
           <label for="locationFilter">Location:</label>
-          <select id="locationFilter">
+          <select id="locationFilter" aria-label="Filter by location">
             <option value="">All Locations</option>
             <option value="Remote">Remote</option>
             <option value="Hybrid">Hybrid</option>
             <option value="On-site">On-site</option>
           </select>
           
-          <button id="clearFilters">Clear Filters</button>
+          <button id="clearFilters" class="secondary">Clear Filters</button>
         </div>
       </div>
       
       <div id="loading" class="loading" style="display: none;">
         <div class="spinner"></div>
+        <span class="sr-only">Loading jobs...</span>
       </div>
       
       <div class="job-listings">
-        <!-- Job cards will be dynamically generated here -->
+        <!-- Job cards will be generated here -->
       </div>
       
       <div id="emptyState" class="empty-state" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
         <h3>No Jobs Found</h3>
         <p>Try adjusting your search criteria or filters to see more results.</p>
         <button id="resetSearch">Reset Search</button>
@@ -116,6 +123,64 @@
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>JobFinder</h3>
+          <p>Find your dream job with our curated listings and powerful search tools.</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="#">All Jobs</a></li>
+              <li><a href="#">Featured Companies</a></li>
+              <li><a href="#">Career Resources</a></li>
+              <li><a href="#">Salary Calculator</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Connect</h4>
+            <ul class="social-links">
+              <li><a href="#" aria-label="Twitter"><i class="icon-twitter"></i></a></li>
+              <li><a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a></li>
+              <li><a href="#" aria-label="Facebook"><i class="icon-facebook"></i></a></li>
+              <li><a href="#" aria-label="Instagram"><i class="icon-instagram"></i></a></li>
+            </ul>
+            <div class="newsletter">
+              <p>Subscribe to our newsletter</p>
+              <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" aria-label="Your email address">
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span>Priceless Tech. | All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/script.js"></script>
+  <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
